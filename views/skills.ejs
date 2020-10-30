@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <body>
-        <h1>Dev Skills</h1>
-        <ul>
-          <% skills.forEach(function(s) { %>
-            <li>
-              <a href="/skills/<%= s.id %>"><%= s.skill %></a>
-            </li>
-          <% }); %>
-        </ul>
-      </body>
-    
-</body>
+      <h1>Dev Skills</h1>
+      <ul>
+        <% skills.forEach(function(s) { %>
+        <li>
+          <a href="/skills/<%= s.id %>"><%= s.skill %></a>
+          <form
+            action="/skills/<%= s.id %>?_method=DELETE"
+            class="delete-form"
+            method="POST"
+          >
+            <button type="submit">X</button>
+          </form>
+        </li>
+        <% }); %>
+      </ul>
+      <h1>Skills as of <%= time %></h1>
+      <a href="/skills/new">Add new skill</a>
+    </body>
+  </body>
 </html>
-
